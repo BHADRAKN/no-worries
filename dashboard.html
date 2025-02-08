@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>NOWORRIES</h2>
+
+    <button onclick="location.href='helpline.html'">Helpline</button>
+    <button onclick="location.href='contact.html'">Contact</button>
+    <button id="sendLoc">Share Location</button>
+
+<h2>🚨 Emergency Health Monitoring</h2>
+<p>Monitoring your health...</p>
+<div id="health-status">
+    <p>❤ Heart Rate: <span id="heart-rate">75</span> BPM</p>
+    <p>🩸 Blood Oxygen: <span id="oxygen-level">98%</span></p>
+    <p>🌡 Temperature: <span id="temperature">98.6°F</span></p>
+</div>
+<button onclick="checkHealth()">Check Health</button>
+<button onclick="sendEmergencyAlert()">🚨 Send SOS</button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
