@@ -1,20 +1,7 @@
-document.getElementById("loginForm")?.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let errorMessage = document.getElementById("error-message");
-
-    if (username === "test.html" && password === "12345") {
-        window.location.href = "dashboard.html";
-    } else {
-        errorMessage.textContent = "Invalid username or password!";
-        errorMessage.style.color = "red";
-    }
-});
-
 // Function to Share Location
-function sendLocation() {
+const sendLoc = document.getElementById("sendLoc");
+
+sendLoc?.addEventListener("click", function sendLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             function(position) {
@@ -41,8 +28,9 @@ function sendLocation() {
         );
     } else {
         alert("Geolocation is not supported by this browser.");
-    }
-}
+    }
+});
+
 // Function to check health status
 function checkHealth() {
     let heartRate = Math.floor(Math.random() * (140 - 60 + 1)) + 60; // Simulated random heart rate
@@ -68,7 +56,7 @@ function sendEmergencyAlert() {
         navigator.geolocation.getCurrentPosition((position) => {
             let latitude = position.coords.latitude;
             let longitude = position.coords.longitude;
-            let googleMapsLink = https://www.google.com/maps?q=${latitude},${longitude};
+            let googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
             // Final message
             let finalMessage = message + googleMapsLink;
@@ -89,11 +77,32 @@ function sendLocation() {
         navigator.geolocation.getCurrentPosition((position) => {
             let latitude = position.coords.latitude;
             let longitude = position.coords.longitude;
-            let googleMapsLink = https://www.google.com/maps?q=${latitude},${longitude};
+            let googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
             alert("📍 Location sent to: " + emergencyContacts.join(", ") + "\n" + googleMapsLink);
         });
     } else {
         alert("Geolocation is not supported on this device.");
-    }
+    }
+}
+function getChatbotResponse() {
+    let userInput = document.getElementById("userInput").value.toLowerCase();
+    let chatbox = document.getElementById("chatbox");
+
+    let responses = {
+        "heart attack": "Chew aspirin and call an ambulance immediately!",
+        "choking": "Perform the Heimlich maneuver if the person cannot breathe.",
+        "burns": "Cool the burn under running water for 10 minutes.",
+        "bleeding": "Apply direct pressure with a clean cloth to stop bleeding.",
+        "fracture": "Immobilize the area and seek medical help immediately."
+    };
+
+    let response = responses[userInput] || "Sorry, I don't have a response for that emergency.";
+
+    let userText = `<p class="userText"><span>${userInput}</span></p>`;
+
+    let botText = `<p class="botText"><span>${response}</span></p>`;
+
+    chatbox.innerHTML += userText + botText;
+    document.getElementById("userInput").value = ""; // Clear input field
 }

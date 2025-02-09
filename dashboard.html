@@ -13,17 +13,26 @@
     <button onclick="location.href='contact.html'">Contact</button>
     <button id="sendLoc">Share Location</button>
 
-<h2>🚨 Emergency Health Monitoring</h2>
-<p>Monitoring your health...</p>
-<div id="health-status">
-    <p>❤ Heart Rate: <span id="heart-rate">75</span> BPM</p>
-    <p>🩸 Blood Oxygen: <span id="oxygen-level">98%</span></p>
-    <p>🌡 Temperature: <span id="temperature">98.6°F</span></p>
-</div>
-<button onclick="checkHealth()">Check Health</button>
-<button onclick="sendEmergencyAlert()">🚨 Send SOS</button>
-
+    <h2>🚨 Emergency Health Monitoring</h2>
+    <p>Monitoring your health...</p>
+    <div id="health-status">
+        <p>❤ Heart Rate: <span id="heart-rate">75</span> BPM</p>
+        <p>🩸 Blood Oxygen: <span id="oxygen-level">98%</span></p>
+        <p>🌡 Temperature: <span id="temperature">98.6°F</span></p>
+    </div>
+    <button onclick="checkHealth()">Check Health</button>
+    <button onclick="sendEmergencyAlert()">🚨 Send SOS</button>
 
     <script src="script.js"></script>
+    
+        <div id="chatbot-container">
+            <div id="chatbox">
+                <p class="botText"><span>Hi! What emergency help do you need?</span></p>
+            </div>
+            <input id="userInput" type="text" placeholder="Type your emergency (e.g., heart attack)">
+            <button onclick="getChatbotResponse()">Ask</button>
+        </div>
+    
+        <script src="script.js"></script> <!-- Keep this before closing </body> -->
 </body>
 </html>
