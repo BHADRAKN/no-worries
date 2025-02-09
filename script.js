@@ -106,3 +106,22 @@ function getChatbotResponse() {
     chatbox.innerHTML += userText + botText;
     document.getElementById("userInput").value = ""; // Clear input field
 }
+// Function to Add a New Contact Inside the Contact Page
+function addContact() {
+    let name = document.getElementById("newContactName").value;
+    let number = document.getElementById("newContactNumber").value;
+    
+    if (name === "" || number === "") {
+        alert("Please enter both name and number.");
+        return;
+    }
+
+    let contactList = document.getElementById("contactList");
+    let newContact = document.createElement("li");
+    newContact.textContent = ${name}: ${number};
+    contactList.appendChild(newContact);
+
+    // Clear input fields
+    document.getElementById("newContactName").value = "";
+    document.getElementById("newContactNumber").value = "";
+}
